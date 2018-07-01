@@ -37,6 +37,15 @@
             position: relative;
             bottom:0;
         }
+        #sweat
+        {
+            top:150px;
+            left:280px;
+            transform: rotate(-10deg);
+            animation-name: Sweat;
+            animation-duration: 0.7s;
+            animation-iteration-count: infinite;
+        }
         #eyes
         {
             display: flex;
@@ -67,6 +76,19 @@ animation-iteration-count: infinite;
             height: 100%;
             font-size: 24pt;
         }
+        @keyframes Sweat
+        {
+            0% {  transform: translateX(0) translateY(0); }
+            15%{  transform: translateX(9px) translateY(-9px); }
+            30%{  transform: translateX(18px) translateY(-12px); }
+            45%{  transform: translateX(24px) translateY(-12px); }
+            60%{  transform: translateX(29px) translateY(-8px); }
+            75%{  transform: translateX(35px) translateY(-4px); opacity: 1;}
+            90%{  transform: translateX(38px) translateY(5px); }
+            100%{ transform: rotate(-50deg); opacity: 0;}
+        }
+
+
         @keyframes testEyes
         {
             0% { transform: translateX(-20px) translateY(0); }
@@ -93,6 +115,7 @@ animation-iteration-count: infinite;
 <body>
     <div id='penguin'>
         <img id='body' src="body.png"/>
+        <img id='sweat' src="sweat.png"/>
         <div id ='eyes'>
             <img id='leftEye' src="eye.png"/>
             <img id='rightEye' src="eye.png"/>
@@ -103,6 +126,7 @@ animation-iteration-count: infinite;
         <input id='account' onkeyup='inputEye(this)' maxlength="30" type='text'/>
     </div>
     <script>
+
     function inputEye(inputblock)
     {
         var fontCount = inputblock.value.length;
@@ -126,6 +150,7 @@ animation-iteration-count: infinite;
         var eyes = document.getElementById('eyes');
         eyes.style.transform="translateX("+eyesX+"px) translateY("+eyesY+"px)";
     }
+
     </script>
 </body>
 </html>
